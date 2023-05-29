@@ -6,7 +6,7 @@ class IslandsController < ApplicationController
   end
 
   def show
-
+    @set_island
   end
 
   def new
