@@ -2,7 +2,7 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-
+    @islands = Island.all
   end
 
   def show
