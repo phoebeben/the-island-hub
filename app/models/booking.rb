@@ -4,4 +4,5 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :guests, numericality: { only_integer: true }, inclusion: { in: 1..50 }
 end
