@@ -1,0 +1,11 @@
+<h1>Add a new Island</h1>
+
+<%= simple_form_for(@island) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.check_box :available %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>

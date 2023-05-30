@@ -6,11 +6,11 @@ class IslandsController < ApplicationController
   end
 
   def show
-    @set_island
+    @island
   end
 
   def new
-
+    @island = Island.new
   end
 
   def create
