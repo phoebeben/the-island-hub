@@ -1,10 +1,9 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
+  before_action :set_booking, only: [:create]
 
   def create
     @booking = Booking.new(bookings_params)
+
     @bookng.island = @island
     if booking.save
       redirect_to island_path(@island)
@@ -14,6 +13,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
