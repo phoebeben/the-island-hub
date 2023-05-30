@@ -14,19 +14,31 @@ class IslandsController < ApplicationController
   end
 
   def create
-
+    @island = Island.new(island_params)
+    if @island.save
+      redirect_to root_path
+    else
+      render :new, status: :unproccessable_entity
+    end
   end
 
   def edit
-
+    @island
   end
 
   def update
-
+    @island = Island.find(params[:id])
+    if @island.update(island_params)
+      redirect_to root_path
+    else
+      render :update, status: :unproccessable_entity
+    end
   end
 
   def destroy
-
+    @island = Island.find(params[:id])
+    @island.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private
