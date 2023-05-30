@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
 
-    @bookng.island = @island
+    @booking.island = @island
     if booking.save
       redirect_to island_path(@island)
     else
