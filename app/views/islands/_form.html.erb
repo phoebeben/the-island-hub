@@ -1,0 +1,8 @@
+<%= simple_form_for(@island) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
