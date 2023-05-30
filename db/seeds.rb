@@ -8,6 +8,7 @@
 
 puts 'Cleaning database...'
 Island.destroy_all
+User.destroy_all
 puts 'creating 5 private islands...'
 
 user = User.create(email: "ntm@gmail.com", password: "hello123", password_confirmation: "hello123")
