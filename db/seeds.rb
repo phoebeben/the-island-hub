@@ -17,3 +17,6 @@ Island.create(name: "Kauai  Springs", location: "Hawaii, USA", price: 21, availa
 Island.create(name: "Kailano  Retreat", location: "Hawaii, USA", price: 72, available: true, description: "lorem", user_id: user.id)
 Island.create(name: "Solitude Island", location: "Mauritius", price: 57, available: true, description: "lorem", user_id: user.id)
 Island.create(name: "The Sunset Bay", location: "Bahamas", price: 70, available: true, description: "lorem", user_id: user.id)
+
+puts "creating categories...."
+Category.create!(name: "Accomadates Spaceships")

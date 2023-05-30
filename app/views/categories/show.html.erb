@@ -1,2 +1,11 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+
+
+<% @islands.each do |island| %>
+  <%= island.name %>
+  <%= island.location %>
+  <%= island.price %>
+  <%= island.available %>
+  <%= island.description %>
+<% end %>
