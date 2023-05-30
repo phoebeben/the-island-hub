@@ -3,11 +3,10 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p> %>
-
 <h1>Welcome!!!!!</h1>
 
 <ul>
   <% @islands.each do |island| %>
-    <li><%= island.name %></li>
+    <li><%= link_to island.name, island_path(island) %></li>
   <% end %>
 </ul>

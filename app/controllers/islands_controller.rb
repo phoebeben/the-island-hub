@@ -6,7 +6,8 @@ class IslandsController < ApplicationController
   end
 
   def show
-    @island
+    @island = Island.find(params[:id])
+    @review = Review.new
   end
 
   def new
