@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :islands do
     resources :bookings, only: %i[index create]
+    resources :reviews, only: %i[new]
   end
 end
