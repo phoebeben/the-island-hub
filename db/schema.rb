@@ -25,6 +25,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_163229) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "island_categories", force: :cascade do |t|
+    t.bigint "island_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_island_categories_on_category_id"
+    t.index ["island_id"], name: "index_island_categories_on_island_id"
+  end
+
   create_table "islands", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -62,6 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_163229) do
 
   add_foreign_key "bookings", "islands"
   add_foreign_key "bookings", "users"
+  add_foreign_key "island_categories", "categories"
+  add_foreign_key "island_categories", "islands"
   add_foreign_key "islands", "users"
   add_foreign_key "reviews", "islands"
   add_foreign_key "reviews", "users"
