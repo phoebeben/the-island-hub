@@ -6,7 +6,7 @@ class IslandsController < ApplicationController
   end
 
   def show
-    @island
+    @booking = Booking.new
   end
 
   def new
@@ -14,7 +14,12 @@ class IslandsController < ApplicationController
   end
 
   def create
-
+    @island = Island.new(island_params)
+    if @island.save
+      redirect_to island_path(@island)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

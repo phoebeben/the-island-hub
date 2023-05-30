@@ -1,14 +1,14 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:create]
+  # before_action :set_booking, only: [:create]
 
   def create
     @booking = Booking.new(bookings_params)
-
+    @island = Island.find(params[:island_id])
     @booking.island = @island
-    if booking.save
+    if @booking.save
       redirect_to island_path(@island)
     else
-      render :show, status: :unprocessable_entity
+      render :template => 'islands/show', status: :unprocessable_entity
     end
   end
 
@@ -19,6 +19,6 @@ class BookingsController < ApplicationController
   end
 
   def bookings_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :guests)
   end
 end
