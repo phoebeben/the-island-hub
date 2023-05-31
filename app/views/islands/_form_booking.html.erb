@@ -1,4 +1,4 @@
-<%= simple_form_for [@island, @booking] do |f| %>
+<%= simple_form_for [island, booking] do |f| %>
 <div class="booking-form">
   <%= f.label :start_date %>
   <%= f.date_select :start_date, start_year: Date.current.year, end_year: Date.current.year + 5%>
@@ -11,8 +11,11 @@
   <div>
   <%= f.label :guests %>
     <%= f.input :guests, input_html: {class: "form-control form-control-sm m-3 w-25"},class:"form-control", label: false, placeholder: "3" %>
-    <%= f.submit class: "btn btn-primary m-3" %>
   </div>
-
+<% if current_user %>
+    <%= f.submit class: "btn btn-primary m-3" %>
+<% else %>
+    <%= link_to 'Log In to Book a Flat!', new_user_session_path, class: 'btn btn-danger m-3' %>
+<% end %>
 </div>
 <% end %>
