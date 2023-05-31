@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
     resources :categories, only: :show
   end
+  get "/bookings", to: "pages#index", as: 'user_bookings'
 end
