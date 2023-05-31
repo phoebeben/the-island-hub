@@ -33,3 +33,7 @@ end
 
 puts "creating categories...."
 Category.create!(name: "Accomodates Spaceships")
+Category.create!(name: "Dragon Friendly")
+Category.create!(name: "Local Wizard")
+Category.create!(name: "Secret Lair")
+Category.create!(name: "Local Cablecar")
