@@ -81,7 +81,7 @@
       <h3>Booking form</h3>
     <div>
       <%# Form content %>
-      <%= render "islands/form_booking" %>
+      <%= render "islands/form_booking", locals: {booking: @booking, island: @island} %>
     </div>
   </div>
 </div>
@@ -130,6 +130,3 @@
       <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
   </div>
-
-
-
