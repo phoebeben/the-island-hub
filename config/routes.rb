@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :islands do
-    resources :bookings, only: %i[index create]
+    resources :bookings, only: %i[create show]
     resources :reviews, only: %i[create]
     resources :categories, only: :show
   end
+  get "/bookings", to: "pages#bookings", as: 'user_bookings'
 end
