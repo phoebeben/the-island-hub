@@ -2,11 +2,16 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-    @islands = Island.all
+    if params[:category]
+      @islands = Island.where('category = ?', params[:category])
+    else
+      @islands = Island.all
+    end
   end
 
   def show
-    @island
+    @island = Island.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -48,6 +53,6 @@ class IslandsController < ApplicationController
   end
 
   def island_params
-    params.require(:island).permit(:name, :location, :price, :available, :description)
+    params.require(:island).permit(:name, :location, :price, :available, :description, photos: [])
   end
 end

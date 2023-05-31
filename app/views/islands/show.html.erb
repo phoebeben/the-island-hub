@@ -95,3 +95,12 @@
 
 
 </div>
+
+
+<% @island.reviews.each do |review| %>
+<p><%= review.content %></p>
+<p><%= '⭐' * review.rating %></p>
+<% end %>
+
+<%= render 'reviews/new_review'%>
+
