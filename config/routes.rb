@@ -12,10 +12,6 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
     resources :categories, only: :show
   end
-<<<<<<< HEAD
-  get "/bookings", to: "pages#index", as: 'user_bookings'
-=======
   resources :bookings
   get "/bookings/:id", to: "pages#show", as: 'booking_details'
->>>>>>> 080c37a79e012334b144e6826c06fb3ea4185aad
 end
