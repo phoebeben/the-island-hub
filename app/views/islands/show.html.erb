@@ -1,7 +1,109 @@
-<h1>Show page</h1>
-<%= @island.name %>
-<%= @island.location %>
-<%= @island.price %>
-<%= @island.available %>
-<%= @island.description %>
+
 <%= render "islands/form_booking" %>
+
+<%# <h1>Show page</h1>
+<%= @island.name %>
+<%# <%= @island.location %>
+<%# <%= @island.price %>
+<%# <%= @island.available %>
+<%# <%= @island.description %>
+
+<%# TODO: %>
+<%# - Make image Card
+- Make details Card
+- Make booking form Card
+- Make reviews Card
+- Make reviews form card %>
+
+<div class="island-card container justify-content-center">
+
+<div class="row mb-3">
+  <div class="col-md-12 mb-4 img-card">
+    <%# Image Card! %>
+    <h3>Image carousel here:</h3>
+      <%# Card content %>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img src="https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1226&q=80" class="d-block w-100 c-img" alt="...">
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" class="d-block w-100 c-img" alt="...">
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1551611342-768da0d7fed2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100 c-img" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+  </div>
+</div>
+
+<div class="row mb-3 gx-5">
+  <div class="col-md-6 mb-4 details-card">
+    <%# Details Card!  %>
+      <h3>Details</h3>
+    <div class="rounded p-3" style="height: 250px;">
+      <%# Card content %>
+      <div class="island-details border-top mb-3">
+        <div><i class="fa-solid fa-earth-americas p-2"></i><%= @island.name %></div>
+        <div><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></div>
+        <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price %></div>
+        <div class="border-top mt-3 mb-3"><i class="fa-solid fa-circle-info p-2"></i></div>
+        <div class="p-2"><%= @island.description %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-4 booking-form">
+    <%# Booking Form! %>
+      <h3>Booking form</h3>
+    <div style="height: 250px;">
+      <%# Form content %>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3 gx-5">
+  <div class="col-md-6 mb-4 reviews-card">
+    <%# Reviews Card! %>
+      <h3>Reviews</h3>
+    <div style="height: 200px;">
+      <%# Reviews content %>
+    </div>
+  </div>
+
+  <div class="col-md-6 mb-4 add-review-form">
+    <%# Review Form! %>
+      <h3>Reviews form</h3>
+    <div style="height: 200px;">
+      <%# Form content %>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+<% @island.reviews.each do |review| %>
+<p><%= review.content %></p>
+<p><%= '⭐' * review.rating %></p>
+<% end %>
+
+<%= render 'reviews/new_review'%>
+

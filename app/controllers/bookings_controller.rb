@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: [:create]
 
+  def index
+
+  end
+
   def create
     @booking = Booking.new(bookings_params)
     @island = Island.find(params[:island_id])

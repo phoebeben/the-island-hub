@@ -7,9 +7,14 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat:wght@200&family=Noto+Sans:ital,wght@0,200;0,600;1,300&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
   </head>
 
   <body>
+
+    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <div class="container"><%= yield %></div>
   </body>

@@ -2,11 +2,17 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-    @islands = Island.all
+    if params[:category]
+      @islands = Island.where('category = ?', params[:category])
+    else
+      @islands = Island.all
+    end
   end
 
   def show
     @booking = Booking.new
+    @island = Island.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -16,22 +22,29 @@ class IslandsController < ApplicationController
   def create
     @island = Island.new(island_params)
     if @island.save
-      redirect_to island_path(@island)
+      redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unproccessable_entity
     end
   end
 
   def edit
-
+    @island
   end
 
   def update
-
+    @island = Island.find(params[:id])
+    if @island.update(island_params)
+      redirect_to root_path
+    else
+      render :update, status: :unproccessable_entity
+    end
   end
 
   def destroy
-
+    @island = Island.find(params[:id])
+    @island.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private
@@ -41,6 +54,6 @@ class IslandsController < ApplicationController
   end
 
   def island_params
-    params.require(:island).permit(:name, :location, :price, :available, :description)
+    params.require(:island).permit(:name, :location, :price, :available, :description, photos: [])
   end
 end
