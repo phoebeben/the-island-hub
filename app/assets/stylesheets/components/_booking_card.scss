@@ -1,0 +1,32 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+  border-radius: 5px !important;
+  overflow: hidden;
+  width: 100%;
+}
+.grid-container {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr;
+}
+.carousel-inner.booking {
+  height: 18rem;
+  img {
+    object-fit: fill;
+  }
+}
+@media (min-width: 765px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 960px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1140px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
