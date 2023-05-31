@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @review = Review.new
     @booking.user = current_user
     if @booking.save!
-      redirect_to booking_details_path(@booking)
+      redirect_to booking_path(@booking)
     else
       render 'islands/show', status: :unprocessable_entity
     end
