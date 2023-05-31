@@ -5,8 +5,39 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p> %>
 <h1>Welcome!!!!!</h1>
 
-<ul>
-  <% @islands.each do |island| %>
-    <li><%= link_to island.name, island_path(island) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="icon-bar">
+    <a class="icon-active" href="#"><i class="fa-solid fa-rocket"></i><br>Accomodates<br>Spaceships</a>
+    <a href="#"><i class="fa-solid fa-dragon"></i><br>Dragon<br>Friendly</a>
+    <a href="#"><i class="fa-solid fa-hat-wizard"></i><br>Local<br>Wizard</a>
+    <a href="#"><i class="fa-solid fa-door-open"></i><br>Secret<br>Lair</a>
+    <a href="#"><i class="fa-solid fa-cable-car"><br></i>Local<br>Cablecar</a>
+  </div>
+</div>
+
+  <div class="grid-container">
+
+<% @islands.each do |island| %>
+          <div class="card">
+
+            <div class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item">
+                      <img src="<%= cl_image_path island.photos[0].key %>" class="d-block" alt="...">
+                  </div>
+                  <div class="carousel-item active">
+                    <img src="<%= cl_image_path island.photos[1].key %>" class="d-block" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="<%= cl_image_path island.photos[2].key %>" class="d-block" alt="...">
+                  </div>
+                </div>
+              </div>
+
+            <div class="container">
+              <h4><b><%= island.name %></b></h4>
+              <p>£<%= island.price %> p/n</p>
+            </div>
+    </div>
+<% end %>
+  </div>
