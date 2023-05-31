@@ -3,10 +3,10 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p> %>
-<h1>Welcome!!!!!</h1>
+<h1>The Island Hub</h1>
 
 <div class="container">
-  <div class="icon-bar">
+  <div class="icon-bar mt-3">
     <%= link_to '/islands?category=Accomodates%20Spaceships' do %>
       <i class="fa-solid fa-rocket"></i><br>Accomodates<br>Spaceships
     <% end %>
@@ -32,28 +32,30 @@
 </div>
 
 <div class="grid-container my-5">
+
   <% @islands.each do |island| %>
+    <% carousel = 0 %>
     <a href="islands/<%=island.id%>" class='card'>
-    <div id="island-card-carousel" class="carousel slide" data-ride="carousel">
+    <div id="island-card-carousel-<%=carousel_id = carousel += 1 %>" class="carousel slide" data-ride="carousel"  data-interval="false">
 
       <div class="carousel-inner islands">
 
-        <div class="carousel-item active">
+        <div class="carousel-item island active">
             <img src="<%= cl_image_path island.photos[0].key %>" class="d-block" alt="island-1">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item island">
           <img src="<%= cl_image_path island.photos[1].key %>" class="d-block" alt="island-2">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item island">
           <img src="<%= cl_image_path island.photos[2].key %>" class="d-block" alt="island-3">
         </div>
 
-        <div class="carousel-control-prev" href="#island-card-carousel" role="button" data-bs-target="#hero-carousel" data-slide="prev">
+        <div class="carousel-control-prev" href="#island-card-carousel-<%= carousel_id %>" role="button"  data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
           </div>
 
-        <div class="carousel-control-next" href="#island-card-carousel" role="button" data-bs-target="#hero-carousel" data-slide="next">
+        <div class="carousel-control-next" href="#island-card-carousel-<%= carousel_id%>" role="button"  data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </div>
