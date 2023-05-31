@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :islands do
     resources :bookings, only: %i[index create]
+    resources :categories, only: :show
   end
 end
