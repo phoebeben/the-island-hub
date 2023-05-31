@@ -4,6 +4,12 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @island = Island.find(@booking.island_id)
+    @user = current_user
+  end
+
   def create
     @booking = Booking.new(bookings_params)
     @island = Island.find(params[:island_id])
