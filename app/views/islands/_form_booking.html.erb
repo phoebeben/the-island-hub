@@ -1,0 +1,8 @@
+<%= simple_form_for [@island, @booking] do |f| %>
+  <%= f.label :start_date %>
+  <%= f.date_select :start_date, start_year: Date.current.year, end_year: Date.current.year + 5 %>
+  <%= f.label :end_date %>
+  <%= f.date_select :end_date, start_year: Date.current.year, end_year: Date.current.year + 5 %>
+  <%= f.input :guests %>
+  <%= f.submit %>
+<% end %>
