@@ -20,6 +20,7 @@
 <% @islands.each do |island| %>
           <div class="card">
 
+<%= link_to island_path(island) do %>
             <div class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item">
@@ -38,6 +39,7 @@
               <h4><b><%= island.name %></b></h4>
               <p>£<%= island.price %> p/n</p>
             </div>
+    <% end %>
     </div>
 <% end %>
   </div>
