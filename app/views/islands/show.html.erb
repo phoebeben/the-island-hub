@@ -1,6 +1,13 @@
 <h1>Show page</h1>
-<%= island.name %>
-<%= island.location %>
-<%= island.price %>
-<%= island.available %>
-<%= island.description %>
+<%= @island.name %>
+<%= @island.location %>
+<%= @island.price %>
+<%= @island.available %>
+<%= @island.description %>
+
+<% @island.reviews.each do |review| %>
+<p><%= review.content %></p>
+<p><%= '⭐' * review.rating %></p>
+<% end %>
+
+<%= render 'reviews/new_review'%>
