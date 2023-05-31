@@ -5,21 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
 
 puts 'Cleaning database...'
 Island.destroy_all
 User.destroy_all
+Review.destroy_all
 
 puts 'creating 5 private islands...'
 
 user = User.create(email: "ntm@gmail.com", password: "hello123", password_confirmation: "hello123")
-islands = []
 
-islands << Island.create!(name: "Nohea Tropic", location: "Phillippines", price: 35, available: true, description: "lorem", user_id: user.id)
-islands << Island.create(name: "Kauai  Springs", location: "Hawaii, USA", price: 21, available: true, description: "lorem", user_id: user.id)
-islands << Island.create(name: "Kailano  Retreat", location: "Hawaii, USA", price: 72, available: true, description: "lorem", user_id: user.id)
-islands << Island.create(name: "Solitude Island", location: "Mauritius", price: 57, available: true, description: "lorem", user_id: user.id)
-islands << Island.create(name: "The Sunset Bay", location: "Bahamas", price: 70, available: true, description: "lorem", user_id: user.id)
+Island.create!(name: "Nohea Tropic", location: "Phillippines", price: 35, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+Island.create(name: "Kauai  Springs", location: "Hawaii, USA", price: 21, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+Island.create(name: "Kailano  Retreat", location: "Hawaii, USA", price: 72, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+Island.create(name: "Solitude Island", location: "Mauritius", price: 57, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+Island.create(name: "The Sunset Bay", location: "Bahamas", price: 70, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+
+islands = Island.all
 
 islands.each do |island|
   image1 = File.open('island_demo1.jpg')
@@ -29,7 +32,13 @@ islands.each do |island|
   island.photos.attach(io: image2, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image3, filename: 'island.jpg', content_type: "image/jpg")
   island.save
+
+  Review.create(rating: rand(1..5), content: "This island gave me a sense of #{Faker::Emotion.adjective} #{Faker::Emotion.noun}", island_id: island.id, user_id: user.id)
+  Review.create(rating: rand(1..5), content: "#{Faker::Emotion.noun} landscape", island_id: island.id, user_id: user.id)
+  Review.create(rating: rand(1..5), content: "Got hunted down by a Dinosaur on my first day :(", island_id: island.id, user_id: user.id)
 end
 
 puts "creating categories...."
 Category.create!(name: "Accomodates Spaceships")
+
+puts "creating 3 reviews"
