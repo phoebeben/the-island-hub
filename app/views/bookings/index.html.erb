@@ -1,0 +1,30 @@
+<h1>Your Bookings<h1>
+<% if @bookings.empty? %>
+  <p>You have no bookings</p>
+  <% else %>
+    <div class="grid-container">
+
+      <% @bookings.each do |booking| %>
+      <% @island = booking.island %>
+      <div class="card">
+
+            <div class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner booking">
+                  <div class="carousel-item">
+                      <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block" alt="...">
+                  </div>
+                  <div class="carousel-item active">
+                    <img src="<%= cl_image_path @island.photos[1].key %>" class="d-block" alt="...">
+                  </div>
+                </div>
+              </div>
+            <div class="container">
+              <h4><b><%= @island.name %></b></h4>
+              <p><%= booking.start_date %></p>
+              <p><%= booking.end_date %></p>
+              <p><%= booking.guests  %> guests</p>
+            </div>
+       </div>
+    <% end %>
+    </div>
+   <% end %>
