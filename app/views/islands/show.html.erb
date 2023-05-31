@@ -98,34 +98,34 @@
   </div>
 
 
-<div class="row mb-3 gx-5 border-top border-2">
-  <div class="col-md-6 mb-4 reviews-card w-100">
-      <br>
-      <div class="mt-4 mb-4"><h4><i class="fa-solid fa-star p-2"></i> <%=@island.reviews.count%> Reviews</h4></div>
-    <%# Reviews Card! %>
-    <div>
-      <%# Reviews content %>
-      <div class="row justify-content-center g-5 reviews-row">
-        <% @island.reviews.each do |review| %>
-          <div class="col-md-4 text-center review-card">
-            <p><%= review.content %></p>
-            <p><%= '⭐' * review.rating %></p>
-          </div>
-        <% end %>
+  <div class="row mb-3 gx-5 border-top border-2">
+    <div class="col-md-6 mb-4 reviews-card w-100">
+        <br>
+        <div class="mt-4 mb-4"><h4><i class="fa-solid fa-star p-2"></i> <%=@island.reviews.count%> Reviews</h4></div>
+      <%# Reviews Card! %>
+      <div>
+        <%# Reviews content %>
+        <div class="row justify-content-center g-5 reviews-row">
+          <% @island.reviews.each do |review| %>
+            <div class="col-md-4 text-center review-card">
+              <p><%= review.content %></p>
+              <p><%= '⭐' * review.rating %></p>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
+
 </div>
 
-
-<div class="footer mt-5">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+  <div class="footer mt-5">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
   </div>
-</div>
-
-</div>
