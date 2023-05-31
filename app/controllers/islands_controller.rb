@@ -3,7 +3,9 @@ class IslandsController < ApplicationController
 
   def index
     if params[:category]
-      @islands = Island.where('category = ?', params[:category])
+      @islands = Island.all.filter do |island|
+        !island.categories.where(name: params[:category]).empty?
+      end
     else
       @islands = Island.all
     end
