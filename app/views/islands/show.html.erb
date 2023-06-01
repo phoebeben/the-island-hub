@@ -14,7 +14,11 @@
     <%# Image Card! %>
     <%# <h3>Image carousel here:</h3> %>
 
-    <h1 class="mb-3"><%=@island.name%>, <%= @island.location %></h1>
+
+  <h1 data-controller="typed" data-typed-sentences-value="<%= [@island.name].to_json %>">
+  </h1>
+  <h2 class="text-center" data-controller="typed" data-typed-sentences-value="<%= [@island.location].to_json %>"></h2>
+
 
     <%# EDIT AND DELETE BUTTONS FOR ISLAND HOST %>
     <% if current_user == @island.host %>
@@ -86,7 +90,7 @@
       <div class="island-details border-top mb-3">
         <div><i class="fa-solid fa-earth-americas p-2"></i><%= @island.name %></div>
         <div><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></div>
-        <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price %></div>
+        <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price.round(2) %></div>
         <div class="border-top mt-3 mb-3"><i class="fa-solid fa-circle-info p-2"></i></div>
         <div class="p-2 fs-5 island-description"><%= @island.description %></div>
         <div class="mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
@@ -106,7 +110,7 @@
 </div>
 
 <% if current_user && !current_user.bookings.where(island_id: @island.id).empty? %>
-  <div class="row mb-3 gx-5 d-flex justify-content-center">
+  <div class="row mb-3 gx-5 d-flex justify-content-start">
     <div class="col-md-6 mb-4 add-review-form">
       <%# Review Form! %>
       <div class="">
