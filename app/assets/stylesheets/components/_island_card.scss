@@ -5,15 +5,16 @@
   width: 100%;
 }
 
-.grid-container {
+.card-container {
   display: grid;
   gap: 50px;
+  width: 100%;
   grid-template-columns: 1fr;
 }
 
 
 .carousel-inner.islands {
-  height: 200px;
+  height: 150px;
 
   img {
     width: 100%;
@@ -23,19 +24,25 @@
 }
 
 @media (min-width: 765px) {
-  .grid-container {
+  .card-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 960px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .card-container {
+    width: 60%;
   }
 }
 
 @media (min-width: 1140px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .card-container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

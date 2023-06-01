@@ -9,8 +9,8 @@ require 'faker'
 
 puts 'Cleaning database...'
 Island.destroy_all
-User.destroy_all
 Review.destroy_all
+User.destroy_all
 
 puts 'creating 20 private islands...'
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
+  get '/my_islands', to: "islands#users_islands", as: 'my_islands'
   resources :islands do
     resources :bookings, only: %i[index show create]
     resources :reviews, only: %i[create]

@@ -9,6 +9,16 @@ class IslandsController < ApplicationController
     else
       @islands = Island.all
     end
+
+    unless @islands.empty?
+      @markers = @islands.geocoded.map do |island|
+        {
+          lat: island.latitude,
+          lng: island.longitude,
+          info_window_html: render_to_string(partial: "map_info", locals: { island: })
+        }
+      end
+    end
   end
 
   def show
@@ -51,6 +61,13 @@ class IslandsController < ApplicationController
     @island = Island.find(params[:id])
     @island.destroy
     redirect_to root_path, status: :see_other
+  end
+
+  def users_islands
+    @islands = current_user.islands
+    @booked_islands = current_user.bookings.map do |booking|
+      booking.island
+    end
   end
 
   private

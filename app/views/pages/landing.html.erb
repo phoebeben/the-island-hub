@@ -2,25 +2,28 @@
 <div id="container">
 
   <div class="header full-width">
+    <%= video_tag("landing_video.mp4", autoplay: true, muted: true, class: "landing-video") %>
     <div class="header-text">
       <h1>The Island Hub</h1>
       <h2>Making dreams of a private islands holiday a reality</h2>
-      <a href="/islands" class="see-all-button" id="main">Book Your Private Island Getaway</a>
+      <a href="/islands" class="default-button" id="main">Book Your Private Island Getaway</a>
     </div>
   </div>
 
   <div class="top-islands mt-3">
-    <div class="top-picks"><h2>This Week's Top Picks</h2></div>
-    <a href="/islands" class="see-all-button">See All</a>
+    <div class="top-picks">
+      <h2>This Week's Top Picks</h2>
+    </div>
+      <a href="/islands" class="default-button">See All</a>
   </div>
 
+
   <div class="grid-container mt-3" id="landing-page">
+    <% carousel = 0 %>
+    <% @islands.each do |island| %>
+      <a href="islands/<%=island.id%>" class='card'>
 
-  <% @islands.each do |island| %>
-      <% carousel = 0 %>
-        <a href="islands/<%=island.id%>" class='card'>
         <div id="island-card-carousel-<%=carousel_id = carousel += 1 %>" class="carousel slide" data-ride="carousel" data-interval="false">
-
           <div class="carousel-inner islands">
 
             <div class="carousel-item island active">
