@@ -1,0 +1,34 @@
+
+<div class="card-container">
+      <% carousel = 0 %>
+    <% @islands.each do |island| %>
+      <a href="islands/<%=island.id%>" class='card'>
+      <div id="island-card-carousel-<%=carousel_id = carousel += 1 %>" class="carousel slide" data-ride="carousel"  data-interval="false">
+        <div class="carousel-inner islands">
+          <div class="carousel-item island active">
+              <img src="<%= cl_image_path island.photos[0].key %>" class="d-block" alt="island-1">
+          </div>
+          <div class="carousel-item island">
+            <img src="<%= cl_image_path island.photos[1].key %>" class="d-block" alt="island-2">
+          </div>
+          <div class="carousel-item island">
+            <img src="<%= cl_image_path island.photos[2].key %>" class="d-block" alt="island-3">
+          </div>
+          <div class="carousel-control-prev" href="#island-card-carousel-<%= carousel_id %>" role="button"  data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </div>
+          <div class="carousel-control-next" href="#island-card-carousel-<%= carousel_id%>" role="button"  data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </div>
+        </div>
+      </div>
+      <div class="container pt-3">
+        <h4><b><%= island.name %></b></h4>
+        <p><%= island.location %></p>
+        <p>£<%= island.price.to_i %> p/n</p>
+      </div>
+      </a>
+    <% end %>
+  </div>
