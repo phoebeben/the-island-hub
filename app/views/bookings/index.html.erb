@@ -19,7 +19,7 @@
                 </div>
               </div>
             <div class="container">
-              <h4><b><%= @island.name %></b></h4>
+              <h4><b><%= link_to @island.name, booking_path(booking)%></b></h4>
               <p><%= booking.start_date %></p>
               <p><%= booking.end_date %></p>
               <p><%= booking.guests  %> guests</p>
