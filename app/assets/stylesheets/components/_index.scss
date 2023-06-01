@@ -1,5 +1,6 @@
 // Import your components CSS files here.
 $font: 'Inter', sans-serif;
+$blue-color: #5CBD9D;
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
@@ -13,3 +14,5 @@ $font: 'Inter', sans-serif;
 @import "bookings_show";
 @import "booking_card";
 @import "island_show_button";
+@import "booking_button";
+@import "review_button";
