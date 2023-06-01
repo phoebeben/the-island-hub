@@ -6,4 +6,8 @@ class Island < ApplicationRecord
   has_many :users, through: :bookings
   has_many :island_categories
   has_many :categories, through: :island_categories
+  validates :name, presence: true, uniqueness: true
+  validates :location, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
 end
