@@ -23,10 +23,12 @@ class IslandsController < ApplicationController
 
   def create
     @island = Island.new(island_params)
+    @island.host = current_user
     if @island.save
-      redirect_to root_path
+      redirect_to island_path(@island)
     else
-      render :new, status: :unproccessable_entity
+      @island = Island.new
+      render '../views/islands/form', status: :unproccessable_entity
     end
   end
 
