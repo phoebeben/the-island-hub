@@ -1,0 +1,31 @@
+.map-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.the-map {
+  width: 40%;
+  height: 600px;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+  max-height: 200px;
+  border: 4px;
+}
+
+.mapboxgl-popup-content p {
+  font-size: 20px;
+}
+
+@media (min-width: 1000px) {
+  .map-card-container {
+    flex-direction: row;
+  }
+
+  .map-container {
+    width: 40%;
+  }
+}

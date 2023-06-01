@@ -1,5 +1,7 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background: white;
 }
 
@@ -8,7 +10,20 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
-  transform: scale(1.7);
-  object-position: 50% 50%;
+  width: 60px;
+}
+
+.profile-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
+  z-index: 90;
+  position: sticky;
+  top: 0px;
+}
+
+.my-background {
+  background-color: white;
 }

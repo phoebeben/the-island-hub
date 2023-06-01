@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container align-items-center">
   <div>
     <h1 id="title"> 🌴 BOOKING DETAILS 🌴</h1>
   </div>
@@ -18,5 +18,9 @@
     <p><strong>Price per night:</strong> <%= @island.price %></p>
     <% days = (@booking.end_date - @booking.start_date).to_i%>
     <p><strong>Your total cost: </strong>£<%= days * @island.price %></p>
+  </div>
+
+  <div class="my-bookings btn btn-success">
+  <%= link_to "View my bookings", bookings_path %>
   </div>
 </div>

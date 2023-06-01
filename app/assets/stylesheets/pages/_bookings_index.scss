@@ -1,0 +1,29 @@
+#card-text {
+  font-size: 20px;
+}
+
+
+#bookings-card {
+  display: grid;
+  gap: 50px;
+  width: 100%;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 765px) {
+  #bookings-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  #bookings-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1140px) {
+  #bookings-card {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
