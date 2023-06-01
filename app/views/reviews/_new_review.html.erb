@@ -1,5 +1,5 @@
 <%= simple_form_for [@island, @review] do |f| %>
-  <%= f.input :content, input_html: {class: "form-control form-control-sm m-3"}, label_html: { class:'m-3' }, placeholder: "Everyday felt like a dream!" %>
+  <%= f.input :content, input_html: {class: "form-control form-control-sm m-3 p-3"}, label_html: { class:'m-3' }, placeholder: "Everyday felt like a dream!" %>
   <%= f.input :rating, input_html: {class: "form-control form-control-sm m-3 w-25"}, label_html: { class:'m-3' }, placeholder: "5" %>
-  <%= f.submit "Submit Review", class: "btn btn-primary m-3"  %>
+  <%= f.submit "Submit Review", class: "btn review-btn m-3"  %>
 <% end %>
