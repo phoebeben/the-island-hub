@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def home
+  def landing
+    @islands = Island.last(4)
   end
 
   def bookings
