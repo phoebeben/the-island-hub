@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  # before_action :set_booking, only: [:create]
+  # before_action :set_booking, only: %i[index show create]
+
   def index
     @bookings = Booking.all
   end
@@ -25,7 +26,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_booking
+  def set_island
     @booking = Booking.find(params[:id])
   end
 

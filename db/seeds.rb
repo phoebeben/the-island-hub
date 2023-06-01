@@ -9,8 +9,8 @@ require 'faker'
 
 puts 'Cleaning database...'
 Island.destroy_all
-User.destroy_all
 Review.destroy_all
+User.destroy_all
 
 puts 'creating 5 private islands...'
 
@@ -32,7 +32,7 @@ islands.each do |island|
   island.photos.attach(io: image2, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image3, filename: 'island.jpg', content_type: "image/jpg")
   island.save
-  
+
 
   Review.create(rating: rand(1..5), content: "This island gave me a sense of #{Faker::Emotion.adjective} #{Faker::Emotion.noun}", island_id: island.id, user_id: user.id)
   Review.create(rating: rand(1..5), content: "#{Faker::Emotion.noun} landscape", island_id: island.id, user_id: user.id)
@@ -46,4 +46,3 @@ Category.create!(name: "Dragon Friendly")
 Category.create!(name: "Local Wizard")
 Category.create!(name: "Secret Lair")
 Category.create!(name: "Local Cablecar")
-

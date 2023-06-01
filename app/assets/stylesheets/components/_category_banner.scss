@@ -3,6 +3,8 @@
   width: 100%;
   overflow: auto;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 }

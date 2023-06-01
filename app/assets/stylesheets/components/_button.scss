@@ -1,0 +1,15 @@
+.default-button {
+  background-color: #dfdcdc;
+  padding: 10px 24px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.default-button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
