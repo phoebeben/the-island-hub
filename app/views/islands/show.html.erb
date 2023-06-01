@@ -23,9 +23,18 @@
     <%# <h3>Image carousel here:</h3> %>
 
     <h1 class="mb-3"><%=@island.name%>, <%= @island.location %></h1>
-    <p><u><%= @island.reviews.count %> reviews</u></p>
-    <%# REMINDER: I THINK IT WOULD BE NICE AT SOME POINT TO INCLUDE AVERAGE RATING SCORE %>
-    <%# <%=review.rating%>
+    <p>⭐
+    <%=
+        if @island.reviews.count > 0
+          total_rating = @island.reviews.sum(:rating)
+          average_rating = total_rating.to_f / @island.reviews.count
+        else
+          ''
+        end
+      %>
+      · <u><%= @island.reviews.count %> reviews</u>
+    </p>
+
 
       <%# Card content %>
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -108,6 +117,13 @@
         <div class="row justify-content-center g-5 reviews-row">
           <% @island.reviews.each do |review| %>
             <div class="col-md-4 text-center review-card">
+              <% if review.rating >= 1 && review.rating <= 2 %>
+                <p class="fs-2 d-flex justify-content-end">🙁</p>
+              <% elsif review.rating >= 3 && review.rating <= 4 %>
+                <p class="fs-2 d-flex justify-content-end">🙂</p>
+              <% elsif review.rating == 5 %>
+                <p class="fs-2 d-flex justify-content-end">😁</p>
+              <% end %>
               <p><%= review.content %></p>
               <p><%= '⭐' * review.rating %></p>
             </div>
@@ -119,14 +135,3 @@
 
 
 </div>
-
-
-  <div class="footer mt-5">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </div>
