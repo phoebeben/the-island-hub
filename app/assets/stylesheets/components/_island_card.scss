@@ -13,11 +13,13 @@
 
 
 .carousel-inner.islands {
-  height: 18rem;
+  height: 200px;
 
   img {
+    width: 100%;
     object-fit: fill;
   }
+
 }
 
 @media (min-width: 765px) {
