@@ -7,17 +7,27 @@
 }
 
 i{
-  color: #595959;
+  // color: #595959;
+  color: $blue-color;
   font-size: 18px;
 }
 
 
 .review-card{
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 14px;
   width: 420px;
   margin-left: 20px;
+  border-radius: 8px;
+  border: 2px solid $blue-color;
+
 }
+
+.rating-emoji{
+  margin-top: -14px;
+}
+
+
 
 // .img-card{
 //   border: 1px solid red;

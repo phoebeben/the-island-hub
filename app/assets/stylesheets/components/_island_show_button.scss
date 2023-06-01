@@ -1,0 +1,22 @@
+// .show-page-btns{
+//   margin-bottom: 5px;
+// }
+
+.edit-btn{
+  background-color: $blue-color;
+  margin-bottom: -28px;
+}
+
+.edit-btn:hover{
+  background-color: $blue-color;
+  opacity: 0.9;
+}
+
+.delete-btn{
+  opacity: 0.7;
+  transition: 200ms ease-in-out;
+}
+
+.delete-btn:hover{
+  opacity: 1;
+}
