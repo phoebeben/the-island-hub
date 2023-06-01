@@ -1,6 +1,4 @@
 
-
-
 <%# <h1>Show page</h1>
 <%= @island.name %>
 <%# <%= @island.location %>
@@ -17,17 +15,27 @@
 
 <div class="island-card container justify-content-center">
 
+
 <div class="row">
   <div class="col-md-12 mb-4 img-card">
     <%# Image Card! %>
     <%# <h3>Image carousel here:</h3> %>
 
     <h1 class="mb-3"><%=@island.name%>, <%= @island.location %></h1>
+
+    <%# EDIT AND DELETE BUTTONS FOR ISLAND HOST %>
+    <% if current_user == @island.host %>
+      <div class="show-page-btns d-flex justify-content-end">
+        <div class="btn btn-primary edit-btn"><%= link_to "Edit #{@island.name}", edit_island_path %></div>
+        <div class="btn btn-danger delete-btn"><%= link_to "Delete Island", island_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
+      </div>
+    <%end%>
+
     <p>⭐
     <%=
         if @island.reviews.count > 0
           total_rating = @island.reviews.sum(:rating)
-          average_rating = total_rating.to_f / @island.reviews.count
+          average_rating = (total_rating.to_f / @island.reviews.count).round(1)
         else
           ''
         end
@@ -85,6 +93,7 @@
     </div>
   </div>
 
+
   <div class="col-md-6 mb-4 booking-form">
     <%# Booking Form! %>
       <h3>Booking form</h3>
@@ -93,8 +102,10 @@
       <%= render partial: "islands/form_booking", locals: {booking: @booking, island: @island} %>
     </div>
   </div>
+
 </div>
 
+<% if current_user && !current_user.bookings.where(island_id: @island.id).empty? %>
   <div class="row mb-3 gx-5 d-flex justify-content-center">
     <div class="col-md-6 mb-4 add-review-form">
       <%# Review Form! %>
@@ -105,6 +116,8 @@
       </div>
     </div>
   </div>
+<% end %>
+
 
 
   <div class="row mb-3 gx-5 border-top border-2">
@@ -118,11 +131,11 @@
           <% @island.reviews.each do |review| %>
             <div class="col-md-4 text-center review-card">
               <% if review.rating >= 1 && review.rating <= 2 %>
-                <p class="fs-2 d-flex justify-content-end">🙁</p>
+                <p class="fs-2 d-flex justify-content-end rating-emoji">🙁</p>
               <% elsif review.rating >= 3 && review.rating <= 4 %>
-                <p class="fs-2 d-flex justify-content-end">🙂</p>
+                <p class="fs-2 d-flex justify-content-end rating-emoji">🙂</p>
               <% elsif review.rating == 5 %>
-                <p class="fs-2 d-flex justify-content-end">😁</p>
+                <p class="fs-2 d-flex justify-content-end rating-emoji">😁</p>
               <% end %>
               <p><%= review.content %></p>
               <p><%= '⭐' * review.rating %></p>
