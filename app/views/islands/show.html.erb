@@ -25,9 +25,9 @@
 
     <%# EDIT AND DELETE BUTTONS FOR ISLAND HOST %>
     <% if current_user == @island.host %>
-      <div class="show-page-btns d-flex justify-content-end">
-        <div class="btn btn-primary edit-btn"><%= link_to "Edit #{@island.name}", edit_island_path %></div>
-        <div class="btn btn-danger delete-btn"><%= link_to "Delete Island", island_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
+      <div class="show-page-btns d-flex justify-content-end gap-3">
+        <div class="btn btn-primary edit-btn"><%= link_to "Edit #{@island.name}", edit_island_path, class:"text-light" %></div>
+        <div class="btn btn-danger delete-btn"><%= link_to "Delete Island", island_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
       </div>
     <%end%>
 
