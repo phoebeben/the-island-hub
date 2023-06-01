@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   get 'categories/show'
+  get '/myaccount', to: 'users#show', as: 'account'
   root to: "pages#landing"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

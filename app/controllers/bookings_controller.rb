@@ -26,10 +26,6 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_island
-    @booking = Booking.find(params[:id])
-  end
-
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date, :guests)
   end

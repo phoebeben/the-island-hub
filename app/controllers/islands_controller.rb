@@ -33,10 +33,14 @@ class IslandsController < ApplicationController
 
   def create
     @island = Island.new(island_params)
+    @island.host = current_user
     if @island.save
-      redirect_to root_path
+      params[:island][:category_ids].each do |id|
+        IslandCategory.create(island_id: @island.id, category_id: id.to_i)
+      end
+      redirect_to island_path(@island)
     else
-      render :new, status: :unproccessable_entity
+      render 'islands/new', status: :unprocessable_entity
     end
   end
 
