@@ -3,45 +3,54 @@
 <%# - Add category icons to show page %>
 <%# - Once added, we need to have it so ONLY the icons  %>
 <%# - That fit for the island show up %>
+<style>
+.edit-btn {
+  border-radius: 4px
+}
+</style>
 
 
+<div class="island-card justify-content-center">
 
-<div class="island-card container justify-content-center">
+  <div class="container">
 
+    <div class="row">
+      <div class="col-md-12 mb-4 img-card">
 
-<div class="row">
-  <div class="col-md-12 mb-4 img-card">
-    <%# Image Card! %>
-    <%# <h3>Image carousel here:</h3> %>
-
-
-  <h1 data-controller="typed" data-typed-sentences-value="<%= [@island.name].to_json %>">
-  </h1>
-  <h2 class="text-center" data-controller="typed" data-typed-sentences-value="<%= [@island.location].to_json %>"></h2>
+        <%# Image Card! %>
+        <%# <h3>Image carousel here:</h3> %>
 
 
-    <%# EDIT AND DELETE BUTTONS FOR ISLAND HOST %>
-    <% if current_user == @island.host %>
-      <div class="show-page-btns d-flex justify-content-end gap-3">
-        <div class="btn edit-btn"><%= link_to "Edit #{@island.name}", edit_island_path, class:"text-light" %></div>
+        <h1 data-controller="typed" data-typed-sentences-value="<%= [@island.name].to_json %>">
+        </h1>
+        <h2 class="text-center" data-controller="typed" data-typed-sentences-value="<%= [@island.location].to_json %>"></h2>
+
+
+      <%# EDIT AND DELETE BUTTONS FOR ISLAND HOST %>
+          <% if current_user == @island.host %>
+            <div class="show-page-btns d-flex justify-content-end gap-3">
+              <div class="btn edit-btn"><%= link_to "Edit #{@island.name}", edit_island_path(@island), class:"text-light" %></div>
+            </div>
+          <%end%>
+
+          <p>⭐
+          <%=
+              if @island.reviews.count > 0
+                total_rating = @island.reviews.sum(:rating)
+                average_rating = (total_rating.to_f / @island.reviews.count).round(1)
+              else
+                ''
+              end
+            %>
+            · <u><a href="#reviews-section"><%= @island.reviews.count %> reviews</a></u>
+          </p>
+
       </div>
-    <%end%>
-
-    <p>⭐
-    <%=
-        if @island.reviews.count > 0
-          total_rating = @island.reviews.sum(:rating)
-          average_rating = (total_rating.to_f / @island.reviews.count).round(1)
-        else
-          ''
-        end
-      %>
-      · <u><%= @island.reviews.count %> reviews</u>
-    </p>
-
+    </div>
+  </div>
 
       <%# Card content %>
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="hero-carousel" class="carousel slide full-width" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -69,11 +78,10 @@
         </button>
     </div>
 
-  </div>
-</div>
+<div class="container">
 
-<div class="row mb-3 gx-5 mt-4">
-  <div class="col-md-6 mb-4 details-card">
+  <div class="row mb-3 gx-5 mt-4">
+    <div class="col-md-6 mb-4 details-card">
     <%# Details Card!  %>
       <h3>Details</h3>
       <%# CATEGORIES ICONS GO HERE %>
@@ -85,29 +93,37 @@
     </div>
 
 
-    <div class="rounded p-3">
-      <%# Card content %>
-      <div class="island-details border-top mb-3">
-        <div><i class="fa-solid fa-earth-americas p-2"></i><%= @island.name %></div>
-        <div><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></div>
-        <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price.round(2) %></div>
-        <div class="border-top mt-3 mb-3"><i class="fa-solid fa-circle-info p-2"></i></div>
-        <div class="p-2 fs-5 island-description"><%= @island.description %></div>
-        <div class="mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
+      <div class="rounded p-3">
+        <%# Card content %>
+        <div class="island-details border-top mb-3">
+          <div><i class="fa-solid fa-earth-americas p-2"></i><%= @island.name %></div>
+          <div><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></div>
+          <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price.round(2) %></div>
+          <div class="border-top mt-3 mb-3"><i class="fa-solid fa-circle-info p-2"></i></div>
+          <div class="p-2 fs-6 island-description"><%= @island.description %></div>
+          <div class="border-bottom mb-3 fs-6 p-2"><u>
+            <%@categories = Category.find(@island.categories.ids)%>
+            <% @categories.each do |category| %>
+            <%= category.name %>
+            <% end %>
+          </u></div>
+          <div class="border-bottom mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
+          <div class="p-2 fs-5 island-description"><%= @island.description %></div>
+          <div class="mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
+        </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="col-md-6 mb-4 booking-container">
-    <%# Booking Form! %>
-    <div>
-      <%# Form content %>
-      <%= render partial: "islands/form_booking", locals: {booking: @booking, island: @island} %>
+    <div class="col-md-6 mb-4 booking-container">
+      <%# Booking Form! %>
+      <div>
+        <%# Form content %>
+        <%= render partial: "islands/form_booking", locals: {booking: @booking, island: @island} %>
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>
 
 <% if current_user && !current_user.bookings.where(island_id: @island.id).empty? %>
   <div class="row mb-3 gx-5 d-flex justify-content-start">
@@ -126,11 +142,6 @@
 <% end %>
 
 
-
-  <div class="row mb-3 gx-5 border-top border-2">
-    <div class="col-md-6 mb-4 reviews-card w-100">
-
-
 <div class="row mb-3 gx-5 border-top border-2">
   <div class="col-md-6 mb-4 reviews-card w-100">
 
@@ -142,7 +153,7 @@
       <%# Reviews Card! %>
       <div>
         <%# Reviews content %>
-        <div class="row justify-content-center g-5 reviews-row">
+        <div class="row justify-content-center g-5 reviews-row" id="reviews-section">
           <% @island.reviews.each do |review| %>
             <div class="col-md-4 text-center review-card">
               <p>
@@ -172,8 +183,8 @@
 </div>
 
   <div class="d-flex justify-content-center mt-5 mb-5">
-    <div class="btn btn-danger delete-btn"><%= link_to "Delete #{@island.name}", island_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
+    <div class="btn btn-danger delete-btn"><%= link_to "Delete #{@island.name}", islands_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
   </div>
 
-
+</div>
 </div>
