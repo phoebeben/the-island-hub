@@ -1,7 +1,8 @@
 
 
 .default-button {
-  background-color: #dfdcdc;
+  background-color: $blue-color;
+  color: white;
   padding: 10px 24px;
   border-radius: 4px;
   transition-duration: 0.4s;
@@ -12,10 +13,10 @@
 }
 
 .default-button:hover {
-  background-color: #4CAF50; /* Green */
+  background-color: $blue-color;
+  opacity: 0.9;
   color: white;
 }
-
 
 #my-islands-text {
   display: flex;

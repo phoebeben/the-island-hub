@@ -1,7 +1,7 @@
-<div class="">
+<div class="whole-booking-form">
   <%= simple_form_for [island, booking] do |f| %>
-    <div class="booking-form">
-      <h3 id="booking-text" class="mt-5 text-center">Book your visit</h3>
+    <div class="booking-form m-3">
+      <h3 id="booking-text" class="p-3 text-center">Book your visit</h3>
       <%= f.input :start_date,
                 as: :string,
                 input_html: { class: 'm-3 w-100', data: { controller: "datepicker" } } %>
