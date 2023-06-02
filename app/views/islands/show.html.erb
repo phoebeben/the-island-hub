@@ -100,12 +100,13 @@
 
 
       <% if current_user && !current_user.bookings.where(island_id: @island.id).empty? %>
+        <div class="border-top border-3"></div>
         <div class="row mb-3 gx-5 d-flex justify-content-start">
           <div class="col-md-6 mb-4 add-review-form">
             <%# Review Form! %>
             <div class="">
               <%# <h3>Review form</h3> %>
-              <div class="mb-4 border-top border-2"></div>
+              <div class="mb-4"></div>
               <h3 class="m-3">How was your trip to <strong><%= @island.name %>?</strong> </h3>
               <p class="m-3">We value <u>your</u> feedback!</p>
               <%# Form content %>
