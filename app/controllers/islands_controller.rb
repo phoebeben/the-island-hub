@@ -45,7 +45,7 @@ class IslandsController < ApplicationController
   end
 
   def edit
-    @island
+    @island = Island.find(params[:id])
   end
 
   def update
