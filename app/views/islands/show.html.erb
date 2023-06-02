@@ -34,7 +34,7 @@
             ''
           end
         %>
-        · <u><%= @island.reviews.count %> reviews</u>
+        · <u><a class="review-a" href="#reviews-section"><%= @island.reviews.count %> reviews</a></u>
       </p>
 
 
@@ -47,7 +47,7 @@
         </div>
         <div class="carousel-item c-item">
           <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
-          
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,7 +64,7 @@
 
   <div class="row mb-3 gx-5 mt-4 position-relative">
     <div class="col-md-6 mb-4 details-card">
-      
+
     <%# Details Card!  %>
       <h3>Details</h3>
       <%# CATEGORIES ICONS GO HERE %>
@@ -135,7 +135,7 @@
             <%# Reviews Card! %>
             <div>
               <%# Reviews content %>
-              <div class="row justify-content-center g-5 reviews-row">
+              <div class="row justify-content-center g-5 reviews-row" id="reviews-section">
                 <% @island.reviews.each do |review| %>
                   <div class="col-md-4 text-center review-card">
                     <p>

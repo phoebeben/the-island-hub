@@ -15,8 +15,8 @@ i{
 
 .review-card{
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 14px;
-  width: 420px;
+  padding: 3px;
+  width: 407px;
   margin-left: 20px;
   border-radius: 8px;
   border: 2px solid $blue-color;
@@ -27,7 +27,10 @@ i{
   margin-top: -14px;
 }
 
-
+.review-a:hover{
+  text-decoration: none;
+  color: black;
+}
 
 // .img-card{
 //   border: 1px solid red;
