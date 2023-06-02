@@ -9,19 +9,19 @@
   </div>
 
   <div class="trip-details card trip-card mt-4" style="width: 40%;">
-    <p><strong>Start-date: </strong><%= @booking.start_date %></p>
-    <p><strong>End-date: </strong><%= @booking.end_date %></p>
-    <p><strong>Guests: </strong><%= @booking.guests %></p>
+    <p><i class="fa-solid fa-calendar-days" style="padding-top: 15px;"></i>&nbsp;&nbsp;<strong>From:</strong> <%= @booking.start_date.to_fs(:long_ordinal) %></p>
+    <p><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;<strong>To:</strong> <%= @booking.end_date.to_fs(:long_ordinal) %></p>
+    <p><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;<%=(@booking.end_date - @booking.start_date).to_i %> days&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-users"></i>&nbsp;&nbsp;<%=@booking.guests %> guests</p>
   </div>
 
-  <div class="price-details card mt-4" style="width: 40%; margin-top: 15px">
-    <p><strong>Price per night:</strong> <%= @island.price %></p>
+  <div class="price-details card mt-4" style="width: 40%;">
+  <p></p>
     <% days = (@booking.end_date - @booking.start_date).to_i%>
-    <p><strong>Your total cost: </strong>£<%= days * @island.price %></p>
+    <p><i class="fa-solid fa-tag"></i>&nbsp;&nbsp;<strong>Total:</strong> <%= number_to_currency(days * @island.price, unit: "£") %></p>
   </div>
 
     <div class="button-edit">
-     <%= link_to "Edit my booking", edit_booking_path(@booking), class: "default-button" %>
+     <%= link_to "View my bookings", bookings_path, class: "default-button" %>
     </div>
     <div></div>
     <div class="button-cancel">
