@@ -29,6 +29,11 @@
   padding: 12px 26px;
 }
 
+#main:hover {
+  background-color: rgba(240, 248, 255, 1);
+  color: $blue-color;
+}
+
 
 @media (min-width: 768px){
   #container{
