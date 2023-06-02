@@ -54,15 +54,17 @@ class IslandsController < ApplicationController
   end
 
   def edit
-    @island
   end
 
   def update
     @island = Island.find(params[:id])
     if @island.update(island_params)
-      redirect_to root_path
+      params[:island][:category_ids].each do |id|
+        IslandCategory.create(island_id: @island.id, category_id: id.to_i)
+      end
+      redirect_to island_path(@island)
     else
-      render :update, status: :unproccessable_entity
+      render :edit, status: :unproccessable_entity
     end
   end
 
