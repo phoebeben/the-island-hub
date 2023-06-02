@@ -5,7 +5,6 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.island = @island
     @booking = Booking.new
-    raise
     if @review.save
       redirect_to island_path(@island)
     else
