@@ -1,26 +1,30 @@
-<div class="container align-items-center">
+<div class="container d-flex flex-column align-items-center">
   <div>
-    <h1 id="title"> 🌴 BOOKING DETAILS 🌴</h1>
+    <h1 id="title"> 🏝️ BOOKING DETAILS 🏝️</h1>
   </div>
-  <div class="trip-to">
-    <h3>Your trip to: <%= link_to @island.name, island_path(@island)%>!</h3>
-    <p>🌊🌊🌊🌊🌊🌊🌊🌊</p>
-    <h5><strong>Location: </strong><%= @island.location %></h5>
+  <div class="trip-to card" style="width: 50%">
+    <h3 class="pt-2">Your trip to: <%= link_to @island.name, island_path(@island), class: "link"%>!</h3>
+    <p></p>
+    <h5><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></h5>
   </div>
 
-  <div class="trip-details">
+  <div class="trip-details card trip-card mt-4" style="width: 40%;">
     <p><strong>Start-date: </strong><%= @booking.start_date %></p>
     <p><strong>End-date: </strong><%= @booking.end_date %></p>
     <p><strong>Guests: </strong><%= @booking.guests %></p>
   </div>
 
-  <div class="price-details">
+  <div class="price-details card mt-4" style="width: 40%; margin-top: 15px">
     <p><strong>Price per night:</strong> <%= @island.price %></p>
     <% days = (@booking.end_date - @booking.start_date).to_i%>
     <p><strong>Your total cost: </strong>£<%= days * @island.price %></p>
   </div>
 
-  <div class="my-bookings btn btn-success">
-  <%= link_to "View my bookings", bookings_path %>
-  </div>
+    <div class="button-edit">
+     <%= link_to "Edit my booking", edit_booking_path(@booking), class: "default-button" %>
+    </div>
+    <div></div>
+    <div class="button-cancel">
+     <%= link_to "Cancel my booking", bookings_path, class: "default-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your trip to #{@island.name}?"}%>
+    </div>
 </div>

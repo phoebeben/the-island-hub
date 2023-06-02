@@ -33,6 +33,40 @@ border-bottom: solid rgb(77, 174, 243);
 .carousel.full-width {
   width: 100vw;
 }
-// .booking-container{
-//   height: 100%;
-// }
+
+.booking-container{
+  height: 100%;
+}
+
+a {
+  --bs-link-hover-color: aquamarine;
+  text-decoration: none;
+}
+
+#button-bookings {
+  width: 15%;
+  align-self: center;
+}
+
+#button-cancel {
+  margin-left: 0px;
+  width: 15%;
+  align-self: center;
+  margin-top: 20px;
+  opacity: 0.9;
+  color: #1EDD88;
+}
+
+#button-cancel:hover {
+  opacity: 1;
+  color: #1EDD88;
+}
+
+
+.link {
+  color: #1EDD88;
+}
+
+a.default-button {
+  margin-top: 15px;
+}
