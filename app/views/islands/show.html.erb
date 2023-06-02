@@ -9,7 +9,6 @@
 }
 </style>
 
-
 <div class="island-card justify-content-center">
 
   <div class="container">
@@ -59,13 +58,13 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active c-item">
-          <img src="https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1226&q=80" class="d-block w-100 c-img" alt="...">
+          <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
         </div>
         <div class="carousel-item c-item">
-          <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" class="d-block w-100 c-img" alt="...">
+          <img src="<%= cl_image_path @island.photos[1].key %>" alt="...">
         </div>
         <div class="carousel-item c-item">
-          <img src="https://images.unsplash.com/photo-1551611342-768da0d7fed2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100 c-img" alt="...">
+          <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
@@ -86,10 +85,9 @@
       <h3>Details</h3>
       <%# CATEGORIES ICONS GO HERE %>
     <div class="d-flex justify-content-end show-categories">
-      <i class="fa-solid fa-rocket fs-2 me-2"></i>
-      <i class="fa-solid fa-dragon fs-2 me-2"></i>
-      <i class="fa-solid fa-hat-wizard fs-2 me-2"></i>
-      <i class="fa-solid fa-cable-car fs-2"></i>
+      <% @island.categories.each do |category| %>
+      <%= category.icon.html_safe %>
+      <% end %>
     </div>
 
 

@@ -29,7 +29,7 @@ Island.create(name: "Jurassic Park", location: "Bahamas", price: 92, available: 
 Island.create!(name: "Island Bay", location: "Jamaica", price: 35, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
 Island.create(name: "Paradise Island", location: "Sri Lanka", price: 45, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
 Island.create(name: "Lord of the Bays", location: "Middle Earth, New Zealand", price: 41, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
-Island.create(name: "Harry Rocker", location: "Privet Drive, England", price: 114, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
+Island.create(name: "Harry Rocker", location: "Fiji", price: 114, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
 Island.create(name: "Fire Cove", location: "Bermuda Triangle", price: 215, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
 Island.create(name: "Fruitopia", location: "Hawaii, USA", price: 79, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
 Island.create(name: "Dead Man's Rock", location: "Bahamas", price: 42, available: true, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", user_id: user.id)
@@ -54,11 +54,16 @@ islands.each do |island|
 end
 
 puts "creating categories...."
-Category.create!(name: "Accomodates Spaceships")
-Category.create!(name: "Dragon Friendly")
-Category.create!(name: "Local Wizard")
-Category.create!(name: "Secret Lair")
-Category.create!(name: "Local Cablecar")
+Category.create!(name: "Accomodates Spaceships", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Dragon Friendly", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Local Wizard", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Local Cablecar", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Sunshine Guaranteed", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Witch Doctor", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Ski Resort", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Ice Caves", icon: '<i class="fa-solid fa-rocket"></i>')
 
 puts "creating island category associations"
 IslandCategory.create(island_id: 14, category_id: 3)
