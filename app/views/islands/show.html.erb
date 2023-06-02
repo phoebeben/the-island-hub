@@ -44,14 +44,13 @@
             ''
           end
         %>
-        <u><%= @island.reviews.count %> reviews</u>
+        <u><a class="review-a" href="#reviews-section"><%= @island.reviews.count %> reviews</a></u>
         </p>
     </div>
   </div>
     <%# ISLAND CAROUSEL %>
 
       <div id="island-card-carousel-show" class="carousel slide" data-ride="carousel"  data-interval="false">
-
         <div class="carousel-inner">
           <div class="carousel-item active c-item">
             <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
@@ -153,7 +152,7 @@
             <%# Reviews Card! %>
             <div>
               <%# Reviews content %>
-              <div class="row justify-content-center g-5 reviews-row">
+              <div class="row justify-content-center g-5 reviews-row" id="reviews-section">
                 <% @island.reviews.each do |review| %>
                   <div class="col-md-4 text-center review-card">
                     <p>
