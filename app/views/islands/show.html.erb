@@ -13,7 +13,7 @@
       <%# <h3>Image carousel here:</h3> %>
 
 
-    <h1 data-controller="typed" data-typed-sentences-value="<%= [@island.name].to_json %>">
+    <h1 data-controller="typed" class="island-hub" data-typed-sentences-value="<%= [@island.name].to_json %>">
     </h1>
     <h2 class="text-center" data-controller="typed" data-typed-sentences-value="<%= [@island.location].to_json %>"></h2>
 
@@ -37,26 +37,28 @@
         · <u><%= @island.reviews.count %> reviews</u>
       </p>
 
+      <div id="island-card-carousel-show" class="carousel slide" data-ride="carousel"  data-interval="false">
 
-      <div class="carousel-inner">
-        <div class="carousel-item active c-item">
-          <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
-        </div>
-        <div class="carousel-item c-item">
-          <img src="<%= cl_image_path @island.photos[1].key %>" alt="...">
-        </div>
-        <div class="carousel-item c-item">
-          <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
-          
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= cl_image_path @island.photos[1].key %>" alt="...">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#island-card-carousel-show" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
           </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#island-card-carousel-show" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
       </div>
 
     </div>
@@ -64,14 +66,16 @@
 
   <div class="row mb-3 gx-5 mt-4 position-relative">
     <div class="col-md-6 mb-4 details-card">
-      
+
     <%# Details Card!  %>
-      <h3>Details</h3>
-      <%# CATEGORIES ICONS GO HERE %>
-    <div class="d-flex justify-content-end show-categories">
-      <% @island.categories.each do |category| %>
-      <%= category.icon.html_safe %>
-      <% end %>
+    <div class="d-flex justify-content-between show-categories">
+      <h3 class="px-4">Details</h3>
+        <%# CATEGORIES ICONS GO HERE %>
+      <div >
+        <% @island.categories.each do |category| %>
+        <%= category.icon.html_safe %>
+        <% end %>
+      </div>
     </div>
 
 
