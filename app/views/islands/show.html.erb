@@ -107,7 +107,7 @@
   </div>
 
 
-  <div class="col-md-6 mb-4">
+  <div class="col-md-6 mb-4 booking-container">
     <%# Booking Form! %>
     <div>
       <%# Form content %>
@@ -137,17 +137,27 @@
 
   <div class="row mb-3 gx-5 border-top border-2">
     <div class="col-md-6 mb-4 reviews-card w-100">
-        <br>
-        <div class="mt-4 mb-4"><h4><i class="fa-solid fa-star p-2"></i><%= average_rating %> - <%=@island.reviews.count%> Reviews</h4></div>
+
+
+<div class="row mb-3 gx-5 border-top border-2">
+  <div class="col-md-6 mb-4 reviews-card w-100">
+
+    <% if @island.reviews.count > 0 %>
+      <br>
+      <div class="mt-4 mb-4">
+        <h4><i class="fa-solid fa-star p-2"></i><%= average_rating %> - <%=@island.reviews.count%> Reviews</h4>
+      </div>
       <%# Reviews Card! %>
       <div>
         <%# Reviews content %>
         <div class="row justify-content-center g-5 reviews-row">
           <% @island.reviews.each do |review| %>
             <div class="col-md-4 text-center review-card">
-              <p><img class="avatar d-flex justify-content-start" alt="avatar"
-                src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
-              /></p>
+              <p>
+                <img class="avatar d-flex justify-content-start" alt="avatar"
+                  src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                />
+              </p>
               <i class="fa-solid fa-quote-left"></i>
               <p class="fs-6"><em><%= review.content %></em></p>
               <p><%= '⭐' * review.rating %></p>
@@ -162,8 +172,12 @@
           <% end %>
         </div>
       </div>
-    </div>
+    <% else %>
+      <h4 class="mt-5 text-center">No reviews just yet!</h4>
+    <% end %>
+
   </div>
+</div>
 
   <div class="d-flex justify-content-center mt-5 mb-5">
     <div class="btn btn-danger delete-btn"><%= link_to "Delete #{@island.name}", island_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>

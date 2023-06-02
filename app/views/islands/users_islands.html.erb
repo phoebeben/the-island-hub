@@ -1,12 +1,5 @@
 
-
-<h2>Islands I own</h2>
-<% @islands.each do |island| %>
-<%= island.name %>
-<%  end %>
-
-
-<h2>Islands I have booked</h2>
-<% @booked_islands.each do |island| %>
-<%= island.name %>
-<%  end %>
+<div class="container">
+  <h2>Islands I own</h2>
+  <%= render 'my_islands', locals: {islands: @islands} %>
+</div>

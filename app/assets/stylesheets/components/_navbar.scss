@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,6 +23,10 @@
   top: 0px;
 }
 
-.my-background {
+.white-background {
   background-color: white;
+}
+
+.transparent {
+  background: transparent;
 }

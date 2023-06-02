@@ -1,3 +1,5 @@
+
+
 .default-button {
   background-color: #dfdcdc;
   padding: 10px 24px;
@@ -12,4 +14,15 @@
 .default-button:hover {
   background-color: #4CAF50; /* Green */
   color: white;
+}
+
+
+#my-islands-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+#my-bookings-text {
+  display: flex;
+  justify-content: space-between;
 }
