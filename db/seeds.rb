@@ -54,11 +54,16 @@ islands.each do |island|
 end
 
 puts "creating categories...."
-Category.create!(name: "Accomodates Spaceships")
-Category.create!(name: "Dragon Friendly")
-Category.create!(name: "Local Wizard")
-Category.create!(name: "Secret Lair")
-Category.create!(name: "Local Cablecar")
+Category.create!(name: "Accomodates Spaceships", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Dragon Friendly", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Local Wizard", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Local Cablecar", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Sunshine Guaranteed", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Witch Doctor", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Ski Resort", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Ice Caves", icon: '<i class="fa-solid fa-rocket"></i>')
 
 puts "creating island category associations"
 IslandCategory.create(island_id: 14, category_id: 3)

@@ -5,9 +5,7 @@
 <%# - That fit for the island show up %>
 
 
-
 <div class="island-card container justify-content-center">
-
 
   <div class="row">
     <div class="col-md-12 mb-4 img-card">
@@ -40,24 +38,16 @@
       </p>
 
 
-        <%# Card content %>
-      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
         </div>
-
-        <div class="carousel-inner">
-          <div class="carousel-item active c-item">
-            <img src="https://images.unsplash.com/photo-1502085671122-2d218cd434e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1226&q=80" class="d-block w-100 c-img" alt="...">
-          </div>
-          <div class="carousel-item c-item">
-            <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" class="d-block w-100 c-img" alt="...">
-          </div>
-          <div class="carousel-item c-item">
-            <img src="https://images.unsplash.com/photo-1551611342-768da0d7fed2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100 c-img" alt="...">
-          </div>
+        <div class="carousel-item c-item">
+          <img src="<%= cl_image_path @island.photos[1].key %>" alt="...">
+        </div>
+        <div class="carousel-item c-item">
+          <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
+          
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,16 +64,15 @@
 
   <div class="row mb-3 gx-5 mt-4 position-relative">
     <div class="col-md-6 mb-4 details-card">
-    <div class="p-4-1"></div>
-      <%# Details Card!  %>
-        <h3>Details</h3>
-        <%# CATEGORIES ICONS GO HERE %>
-      <div class="d-flex justify-content-end show-categories">
-        <i class="fa-solid fa-rocket fs-2 me-2"></i>
-        <i class="fa-solid fa-dragon fs-2 me-2"></i>
-        <i class="fa-solid fa-hat-wizard fs-2 me-2"></i>
-        <i class="fa-solid fa-cable-car fs-2"></i>
-      </div>
+      
+    <%# Details Card!  %>
+      <h3>Details</h3>
+      <%# CATEGORIES ICONS GO HERE %>
+    <div class="d-flex justify-content-end show-categories">
+      <% @island.categories.each do |category| %>
+      <%= category.icon.html_safe %>
+      <% end %>
+    </div>
 
 
       <div class="rounded p-3">

@@ -2,21 +2,30 @@ class IslandsController < ApplicationController
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
+    @islands = []
+    @markers = []
     if params[:category]
-      @islands = Island.all.filter do |island|
-        !island.categories.where(name: params[:category]).empty?
+      Island.all.each do |island|
+        next unless island.categories.include?(Category.where(name: params[:category])[0])
+
+        @islands << island
+        marker = {
+                  lat: island.latitude,
+                  lng: island.longitude,
+                  info_window_html: render_to_string(partial: "map_info", locals: { island: })
+                  }
+        @markers << marker if island.geocoded?
       end
     else
       @islands = Island.all
-    end
-
-    unless @islands.empty?
-      @markers = @islands.geocoded.map do |island|
-        {
-          lat: island.latitude,
-          lng: island.longitude,
-          info_window_html: render_to_string(partial: "map_info", locals: { island: })
-        }
+      unless @islands.empty?
+        @markers = @islands.geocoded.map do |island|
+          {
+            lat: island.latitude,
+            lng: island.longitude,
+            info_window_html: render_to_string(partial: "map_info", locals: { island: })
+          }
+        end
       end
     end
   end
