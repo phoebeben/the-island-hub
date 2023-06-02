@@ -1,26 +1,30 @@
-<div class="container align-items-center">
+<div class="container d-flex flex-column align-items-center">
   <div>
-    <h1 id="title"> 🌴 BOOKING DETAILS 🌴</h1>
+    <h1 id="title"> 🏝️ BOOKING DETAILS 🏝️</h1>
   </div>
-  <div class="trip-to">
-    <h3>Your trip to: <%= link_to @island.name, island_path(@island)%>!</h3>
-    <p>🌊🌊🌊🌊🌊🌊🌊🌊</p>
-    <h5><strong>Location: </strong><%= @island.location %></h5>
-  </div>
-
-  <div class="trip-details">
-    <p><strong>Start-date: </strong><%= @booking.start_date %></p>
-    <p><strong>End-date: </strong><%= @booking.end_date %></p>
-    <p><strong>Guests: </strong><%= @booking.guests %></p>
+  <div class="trip-to card" style="width: 50%">
+    <h3 class="pt-2">Your trip to: <%= link_to @island.name, island_path(@island), class: "link"%>!</h3>
+    <p></p>
+    <h5><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></h5>
   </div>
 
-  <div class="price-details">
-    <p><strong>Price per night:</strong> <%= @island.price %></p>
+  <div class="trip-details card trip-card mt-4" style="width: 40%;">
+    <p><i class="fa-solid fa-calendar-days" style="padding-top: 15px;"></i>&nbsp;&nbsp;<strong>From:</strong> <%= @booking.start_date.to_fs(:long_ordinal) %></p>
+    <p><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;<strong>To:</strong> <%= @booking.end_date.to_fs(:long_ordinal) %></p>
+    <p><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;<%=(@booking.end_date - @booking.start_date).to_i %> days&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-users"></i>&nbsp;&nbsp;<%=@booking.guests %> guests</p>
+  </div>
+
+  <div class="price-details card mt-4" style="width: 40%;">
+  <p></p>
     <% days = (@booking.end_date - @booking.start_date).to_i%>
-    <p><strong>Your total cost: </strong>£<%= days * @island.price %></p>
+    <p><i class="fa-solid fa-tag"></i>&nbsp;&nbsp;<strong>Total:</strong> <%= number_to_currency(days * @island.price, unit: "£") %></p>
   </div>
 
-  <div class="my-bookings btn btn-success">
-  <%= link_to "View my bookings", bookings_path %>
-  </div>
+    <div class="button-edit">
+     <%= link_to "View my bookings", bookings_path, class: "default-button" %>
+    </div>
+    <div></div>
+    <div class="button-cancel">
+     <%= link_to "Cancel my booking", bookings_path, class: "default-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your trip to #{@island.name}?"}%>
+    </div>
 </div>
