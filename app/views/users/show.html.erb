@@ -1,1 +1,30 @@
-<%= render "my_islands", locals: {islands: @islands}%>
+<style>
+  h2 {
+    text-align: left;
+  }
+  </style>
+
+<div class="user-card">
+</div>
+
+<div class="container">
+
+<div class="my-bookings">
+  <div id="my-bookings-text">
+    <h2>Your Bookings:</h2>
+    <a href="/bookings" class="default-button">See All</a>
+  </div>
+  <div>
+    <%= render "my_bookings", locals: {bookings: @bookings}%>
+ </div>
+
+<div class="my-islands my-5">
+  <div id="my-islands-text">
+    <h2>Islands You Own:</h2>
+    <a href="/my_islands" class="default-button">See All</a>
+  </div>
+  <div>
+    <%= render "my_islands", locals: {islands: @islands}%>
+  </div>
+
+</div>
