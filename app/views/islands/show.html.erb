@@ -92,14 +92,6 @@
         <div><i class="fa-solid fa-location-dot p-2"></i><%= @island.location %></div>
         <div><i class="fa-solid fa-credit-card p-2"></i>£<%= @island.price.round(2) %></div>
         <div class="border-top mt-3 mb-3"><i class="fa-solid fa-circle-info p-2"></i></div>
-        <div class="p-2 fs-6 island-description"><%= @island.description %></div>
-        <div class="border-bottom mb-3 fs-6 p-2"><u>
-          <%@categories = Category.find(@island.categories.ids)%>
-          <% @categories.each do |category| %>
-          <%= category.name %>
-          <% end %>
-        </u></div>
-        <div class="border-bottom mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
         <div class="p-2 fs-5 island-description"><%= @island.description %></div>
         <div class="mb-3 fs-6 p-2"><u>Show more</u> &gt;</div>
       </div>
