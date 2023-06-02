@@ -8,6 +8,8 @@
 .the-map {
   width: 40%;
   height: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+  border-radius: 5px !important;
 }
 
 .mapboxgl-popup {

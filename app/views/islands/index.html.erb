@@ -3,10 +3,17 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque facere quam, ex quasi perferendis iste commodi et voluptatibus. Id tenetur aspernatur modi dolor quis, corporis asperiores distinctio illum quibusdam?</p> %>
-<div class="container">
-<h1>The Island Hub</h1>
+<style>
+i {
+  color: black;
+}
+</style>
 
 <div class="container">
+<h1 class="island-hub" id="large">The Island Hub</h1>
+<h3 id="index-header">Your private island holiday starts here</h2>
+
+<div class="container mt-4">
   <%= render 'islands/category_banner' %>
 </div>
 
@@ -45,8 +52,8 @@
       </div>
 
       <div class="container pt-3">
-        <h4><b><%= island.name %></b></h4>
-        <p><%= island.location %></p>
+        <h3><b><%= island.name %></b></h3>
+        <h4><%= island.location %></h4>
         <p>£<%= island.price.to_i %> p/n</p>
       </div>
       </a>
