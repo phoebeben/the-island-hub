@@ -39,6 +39,7 @@
 
       <div id="island-card-carousel-show" class="carousel slide" data-ride="carousel"  data-interval="false">
         <div class="carousel-inner">
+        <% if @island.photos.length >= 3 %>
           <div class="carousel-item active c-item">
             <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
           </div>
@@ -47,8 +48,18 @@
           </div>
           <div class="carousel-item c-item">
             <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
-
           </div>
+        <% else %>
+          <div class="carousel-item active c-item">
+            <img src="<%= image_path "island_demo1"%>" class="d-block w-100" alt="island-1">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= image_path "island_demo2"%>" class="d-block w-100" alt="island-1">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= image_path "island_demo3"%>" class="d-block w-100" alt="island-1">
+          </div>
+        <% end %>
           <button class="carousel-control-prev" type="button" data-bs-target="#island-card-carousel-show" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
