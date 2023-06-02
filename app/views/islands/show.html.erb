@@ -13,7 +13,13 @@
   margin-left: -50vw;
   margin-right: -50vw;
 
-}</style>
+}
+#book-form-sticky {
+  position: sticky;
+  top: 0;
+}
+
+</style>
 
 <div class="island-card container justify-content-center">
 
@@ -137,10 +143,9 @@
     </div>
 
 
-    <div class="col-md-6 mb-4 booking-container position-sticky align-self-start top-0 end-0">
-      <div class="p-4-1"></div>
+    <div class="col-md-6 mb-4 booking-container align-self-start top-0 end-0">
       <%# Booking Form! %>
-      <div>
+      <div id='book-form-sticky'>
         <%# Form content %>
         <%= render partial: "islands/form_booking", locals: {booking: @booking, island: @island} %>
       </div>
