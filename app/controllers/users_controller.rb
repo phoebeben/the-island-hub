@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
-    .bookings.map do |booking|
-    booking.island
-    @islands = @user.islands
-    end
+    @bookings = current_user.bookings.last(4)
+    @islands = current_user.islands.last(4)
   end
 end
