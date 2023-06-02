@@ -40,9 +40,9 @@ Island.create(name: "Banana Bayou", location: "Cayman Islands", price: 195, avai
 islands = Island.all
 
 islands.each do |island|
-  image1 = File.open('island_demo1.jpg')
-  image2 = File.open('island_demo2.jpg')
-  image3 = File.open('island_demo3.jpg')
+  image1 = File.open('app/assets/images/island_demo1.jpg')
+  image2 = File.open('app/assets/images/island_demo2.jpg')
+  image3 = File.open('app/assets/images/island_demo3.jpg')
   island.photos.attach(io: image1, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image2, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image3, filename: 'island.jpg', content_type: "image/jpg")

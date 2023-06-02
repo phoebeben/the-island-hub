@@ -25,6 +25,6 @@
     </div>
     <div></div>
     <div class="button-cancel">
-     <%= link_to "Cancel my booking", bookings_path, class: "default-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your trip to #{@island.name}?"}%>
+     <%= link_to "Cancel my booking", booking_path(@booking), class: "default-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your trip to #{@island.name}?"}%>
     </div>
 </div>
