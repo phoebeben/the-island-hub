@@ -4,7 +4,7 @@
 
     <% @bookings.each do |booking| %>
     <% island = booking.island %>
-      <a href="bookings/<%=booking.id%>" class='card'>
+      <a href="islands/<%=island.id%>" class='card'>
       <div id="island-card-carousel-<%=carousel_id = carousel += 1 %>" class="carousel slide" data-ride="carousel"  data-interval="false">
 
         <div class="carousel-inner islands">

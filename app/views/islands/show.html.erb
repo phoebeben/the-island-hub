@@ -12,8 +12,17 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+.booking-container.align-self-start {
+  position: sticky;
+  top: 0;
+}
 
-}</style>
+img{
+  width: 100%;
+  object-fit: center;
+}
+</style>
 
 <div class="island-card container justify-content-center">
 
@@ -126,8 +135,7 @@
     </div>
 
 
-    <div class="col-md-6 mb-4 booking-container position-sticky align-self-start top-0 end-0">
-      <div class="p-4-1"></div>
+    <div class="col-md-6 mb-4 booking-container align-self-start top-0 end-0">
       <%# Booking Form! %>
       <div>
         <%# Form content %>
@@ -137,9 +145,6 @@
 
   </div>
 
-
-  <div class="row mb-3 gx-5 border-top border-2">
-    <div class="col-md-6 mb-4 reviews-card w-100">
 
       <div class="row mb-3 gx-5 border-top border-2">
         <div class="col-md-6 mb-4 reviews-card w-100">
