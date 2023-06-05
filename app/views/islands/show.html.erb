@@ -12,8 +12,8 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-}
-.booking-container.align-self-start {
+
+#book-form-sticky {
   position: sticky;
   top: 0;
 }
@@ -22,6 +22,7 @@ img{
   width: 100%;
   object-fit: center;
 }
+  
 </style>
 
 <div class="island-card container justify-content-center">
@@ -61,6 +62,7 @@ img{
 
       <div id="island-card-carousel-show" class="carousel slide" data-ride="carousel"  data-interval="false">
         <div class="carousel-inner">
+        <% if @island.photos.length >= 3 %>
           <div class="carousel-item active c-item">
             <img src="<%= cl_image_path @island.photos[0].key %>" class="d-block w-100 c-img" alt="...">
           </div>
@@ -69,8 +71,18 @@ img{
           </div>
           <div class="carousel-item c-item">
             <img src="<%= cl_image_path @island.photos[2].key %>" alt="...">
-
           </div>
+        <% else %>
+          <div class="carousel-item active c-item">
+            <img src="<%= image_path "island_demo1"%>" class="d-block w-100" alt="island-1">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= image_path "island_demo2"%>" class="d-block w-100" alt="island-1">
+          </div>
+          <div class="carousel-item c-item">
+            <img src="<%= image_path "island_demo3"%>" class="d-block w-100" alt="island-1">
+          </div>
+        <% end %>
           <button class="carousel-control-prev" type="button" data-bs-target="#island-card-carousel-show" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -137,7 +149,7 @@ img{
 
     <div class="col-md-6 mb-4 booking-container align-self-start top-0 end-0">
       <%# Booking Form! %>
-      <div>
+      <div id='book-form-sticky'>
         <%# Form content %>
         <%= render partial: "islands/form_booking", locals: {booking: @booking, island: @island} %>
       </div>
@@ -192,8 +204,5 @@ img{
           <div class="btn btn-danger delete-btn"><%= link_to "Delete #{@island.name}", island_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
         </div>
       <%end%>
-
-    </div>
-  </div>
 
 </div>

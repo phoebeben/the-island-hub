@@ -40,9 +40,9 @@ Island.create(name: "Banana Bayou", location: "Cayman Islands", price: 195, avai
 islands = Island.all
 
 islands.each do |island|
-  image1 = File.open('island_demo1.jpg')
-  image2 = File.open('island_demo2.jpg')
-  image3 = File.open('island_demo3.jpg')
+  image1 = File.open('app/assets/images/island_demo1.jpg')
+  image2 = File.open('app/assets/images/island_demo2.jpg')
+  image3 = File.open('app/assets/images/island_demo3.jpg')
   island.photos.attach(io: image1, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image2, filename: 'island.jpg', content_type: "image/jpg")
   island.photos.attach(io: image3, filename: 'island.jpg', content_type: "image/jpg")
@@ -55,15 +55,14 @@ end
 
 puts "creating categories...."
 Category.create!(name: "Accomodates Spaceships", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Dragon Friendly", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Local Wizard", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Local Cablecar", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Sunshine Guaranteed", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Witch Doctor", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Ski Resort", icon: '<i class="fa-solid fa-rocket"></i>')
-Category.create!(name: "Ice Caves", icon: '<i class="fa-solid fa-rocket"></i>')
+Category.create!(name: "Dragon Friendly", icon: '<i class="fa-solid fa-dragon"></i>')
+Category.create!(name: "Local Wizard", icon: '<i class="fa-solid fa-wizard"></i>')
+Category.create!(name: "Secret Lair", icon: '<i class="fa-solid fa-door-open"></i>')
+Category.create!(name: "Local Cablecar", icon: '<i class="fa-solid fa-cable-car"></i>')
+Category.create!(name: "Sunshine Guaranteed", icon: '<i class="fa-solid fa-sun"></i>')
+Category.create!(name: "Witch Doctor", icon: '<i class="fa-solid fa-staff-snake"></i>')
+Category.create!(name: "Ski Resort", icon: '<i class="fa-solid fa-person-skiing"></i>')
+Category.create!(name: "Ice Caves", icon: '<i class="fa-solid fa-snowflake"></i>')
 
 puts "creating island category associations"
 IslandCategory.create(island_id: 14, category_id: 3)

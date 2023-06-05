@@ -7,6 +7,11 @@
 i {
   color: black;
 }
+
+.the-map {
+  position: sticky;
+  top: 0;
+}
 </style>
 
 <div class="container">
@@ -27,7 +32,7 @@ i {
       <div id="island-card-carousel-<%=carousel_id = carousel += 1 %>" class="carousel slide" data-ride="carousel"  data-interval="false">
 
         <div class="carousel-inner islands">
-
+        <% if island.photos.length >= 3 %>
           <div class="carousel-item island active">
               <img src="<%= cl_image_path island.photos[0].key %>" class="d-block" alt="island-1">
           </div>
@@ -37,6 +42,17 @@ i {
           <div class="carousel-item island">
             <img src="<%= cl_image_path island.photos[2].key %>" class="d-block" alt="island-3">
           </div>
+        <% else %>
+          <div class="carousel-item island active">
+                <img src="<%= image_path "island_demo1"%>" class="d-block" alt="island-1">
+            </div>
+            <div class="carousel-item island">
+              <img src="<%= image_path "island_demo2"%>" class="d-block" alt="island-2">
+            </div>
+            <div class="carousel-item island">
+              <img src="<%= image_path "island_demo3"%>" class="d-block" alt="island-3">
+            </div>
+        <% end %>
 
           <div class="carousel-control-prev" href="#island-card-carousel-<%= carousel_id %>" role="button"  data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

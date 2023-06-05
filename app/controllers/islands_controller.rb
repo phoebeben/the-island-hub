@@ -38,6 +38,7 @@ class IslandsController < ApplicationController
 
   def new
     @island = Island.new
+    @new = true
   end
 
   def create
