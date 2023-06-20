@@ -22,7 +22,7 @@ img{
   width: 100%;
   object-fit: center;
 }
-  
+
 </style>
 
 <div class="island-card container justify-content-center">
@@ -198,7 +198,7 @@ img{
         </div>
       </div>
 
-      <%# # DELETE BUTTON FOR ISLAND HOST %>
+      <%# DELETE BUTTON FOR ISLAND HOST %>
       <%if current_user == @island.host%>
         <div class="d-flex justify-content-center mt-5 mb-5">
           <div class="btn btn-danger delete-btn"><%= link_to "Delete #{@island.name}", island_path, class:"text-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@island.name}?"}%></div>
